@@ -5,7 +5,7 @@ set -euo pipefail
 exec >/dev/null 2>&1
 
 ZIP_PATH="/Users/Shared/Genians/Resources/083EB6B4A95018111F9AA3116B63FA36D60FC4C3.zip"
-DEST_DIR="${ZIP_PATH%.zip}"
+DEST_DIR="/Users/Shared/Genians/Resources"
 INNER_PATH="Symantec Endpoint Protection"
 INNER_RELATIVE_PATH="Additional Resources"
 PKG_NAME="SEP.mpkg"
