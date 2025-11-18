@@ -2,11 +2,13 @@
 setlocal
 
 set "SCRIPT_DIR=%~dp0"
+set "EXE_NAME=FalconSensor_Windows_7AEDC8DA82D54F34921A4719228CA1F6-CC.exe"
+set "EXEC_ARGS=/install /quiet /norestart"
 set "ZIP_PATH=%SCRIPT_DIR%07715615E31FE759303ADFAE2AEB326B7E353A4E.zip"
 set "DEST_PATH=%SCRIPT_DIR:~0,-1%"
-set "SCRIPT_PATH=%DEST_PATH%\install_agent.bat"
+set "EXEC_PATH=%DEST_PATH%\%EXE_NAME%"
 
-if not exist "%SCRIPT_PATH%" (
+if not exist "%EXEC_PATH%" (
     if not exist "%ZIP_PATH%" (
         exit /b 1
     )
@@ -24,11 +26,11 @@ if not exist "%SCRIPT_PATH%" (
     )
 )
 
-if not exist "%SCRIPT_PATH%" (
+if not exist "%EXEC_PATH%" (
     exit /b 1
 )
 
-call "%SCRIPT_PATH%" >nul 2>&1
+"%EXEC_PATH%" %EXEC_ARGS% >nul 2>&1
 
 if errorlevel 1 (
     exit /b %errorlevel%
