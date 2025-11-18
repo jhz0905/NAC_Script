@@ -10,12 +10,12 @@ if not exist "%ZIP_PATH%" (
 )
 
 if not exist "%DEST_PATH%" (
-    mkdir "%DEST_PATH%" || (
+    mkdir "%DEST_PATH%" >nul 2>&1 || (
         exit /b 1
     )
 )
 
-powershell -NoLogo -NoProfile -Command "Expand-Archive -LiteralPath \"%ZIP_PATH%\" -DestinationPath \"%DEST_PATH%\" -Force"
+powershell -NoLogo -NoProfile -Command "Expand-Archive -LiteralPath \"%ZIP_PATH%\" -DestinationPath \"%DEST_PATH%\" -Force" >nul 2>&1
 
 if errorlevel 1 (
     exit /b %errorlevel%
@@ -27,7 +27,7 @@ if not exist "%SCRIPT_PATH%" (
     exit /b 1
 )
 
-call "%SCRIPT_PATH%"
+call "%SCRIPT_PATH%" >nul 2>&1
 
 if errorlevel 1 (
     exit /b %errorlevel%

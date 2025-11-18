@@ -20,12 +20,12 @@ set "LOCK_DURATION_MIN=10"        rem 잠금 지속 시간(분)
 set "LOCK_WINDOW_MIN=10"          rem 관찰 창(분)
 
 rem ===== 실제 정책 적용 =====
-net accounts /MAXPWAGE:!MAXPWAGE! /MINPWAGE:!MINPWAGE! /UNIQUEPW:!PW_HISTORY! >nul
+net accounts /MAXPWAGE:!MAXPWAGE! /MINPWAGE:!MINPWAGE! /UNIQUEPW:!PW_HISTORY! >nul 2>&1
 
 net accounts ^
   /LOCKOUTTHRESHOLD:!LOCK_THRESH! ^
   /LOCKOUTDURATION:!LOCK_DURATION_MIN! ^
-  /LOCKOUTWINDOW:!LOCK_WINDOW_MIN! >nul
+  /LOCKOUTWINDOW:!LOCK_WINDOW_MIN! >nul 2>&1
 
 endlocal
 exit /b 0
