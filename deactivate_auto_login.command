@@ -33,3 +33,10 @@ main() {
 }
 
 main "$@"
+
+
+# sudo defaults read /Library/Preferences/com.apple.loginwindow autoLoginUser
+# 로 값이 비어있는지 확인
+
+#sudo ls /etc/kcpassword
+#로 값이 비었는지 확인
